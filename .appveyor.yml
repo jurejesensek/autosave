@@ -141,12 +141,13 @@ for:
 #---------------------------------#
 
 build_script:
-  - cmd: python .ci/cue.py prepare
-  - cmd: python .ci/cue.py build
+  - CD .ci
+  - cmd: python cue.py prepare
+  - cmd: python cue.py build
 
 test_script:
-  - cmd: python .ci/cue.py -T 15M test
-  - cmd: python .ci/cue.py test-results
+  - cmd: python cue.py -T 15M test
+  - cmd: python cue.py test-results
 
 #---------------------------------#
 #         debugging               #
