@@ -132,7 +132,8 @@ for:
     only:
       - SET: test00
   build_script:
-    - cmd: python .ci/cue-test.py
+    - CD .ci
+    - cmd: python cue-test.py
   test_script:
     - cmd: echo Tests have been run in the build phase
 
@@ -146,6 +147,7 @@ build_script:
   - cmd: python cue.py build
 
 test_script:
+  - CD .ci
   - cmd: python cue.py -T 15M test
   - cmd: python cue.py test-results
 
